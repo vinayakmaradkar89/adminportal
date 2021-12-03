@@ -13,5 +13,7 @@ public interface SaveDataInCSVService
     String appendDatatoCSVFile(List<String[]> data, String existingCsvFile) throws IOException;
 	public Map<String, String> readFileFromDamLocation(String fileName, ResourceResolver resourceResolver, String damFileName) throws IOException;
 	public Map<String, String> updateFileToDAMLocation(String filePath, ResourceResolver resourceResolver, String fileName, String damFilePath) throws IOException;
+	public Map<String, Object> readFileData(String filePath, String id);
+	public Map<String, Object> readAndUpdateFileData(String filePath, String id, Map<String, String> dataToUpdate);
 
 }

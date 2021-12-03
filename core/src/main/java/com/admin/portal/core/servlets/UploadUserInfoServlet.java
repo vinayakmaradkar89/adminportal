@@ -27,10 +27,9 @@ import com.admin.portal.core.service.SaveDataInCSVService;
 
 @Component(service = Servlet.class)
 @SlingServletPaths(
-		value = {"/bin/uploadUserinfo","/aemgeeks/uploadUserinfo"}
+		value = {"/bin/uploadUserinfo","/adminportal/uploadUserinfo"}
 		)
 
-//Test: http://localhost:4502/bin/uploadUserinfo?id=101&category=IT&name=Vinayak&trackingCode=AD001&brand=Nike&nfosHeader=10&nfosDesc=Not required
 public class UploadUserInfoServlet extends SlingAllMethodsServlet
 {
 
@@ -47,20 +46,17 @@ public class UploadUserInfoServlet extends SlingAllMethodsServlet
 	@Override
 	protected void doPost(SlingHttpServletRequest req, SlingHttpServletResponse resp) throws ServletException, IOException {
 		JSONObject responseJsonObject = new JSONObject();
-		JSONObject requestJsonObject = new JSONObject();
 		try
 		{
 			ResourceResolver resourceResolver = req.getResourceResolver();
-
-			requestJsonObject = readRawJson(req);
 			
-			String id = requestJsonObject.get("id").toString();
-			String category = requestJsonObject.get("category").toString();
-			String name = requestJsonObject.get("name").toString();
-			String trackingCode = requestJsonObject.get("trackingCode").toString();
-			String brand = requestJsonObject.get("brand").toString();
-			String nfosHeader = requestJsonObject.get("nfosHeader").toString();
-			String nfosDesc = requestJsonObject.get("nfosDesc").toString();
+			String id = req.getRequestParameter("id").getString();
+			String category = req.getRequestParameter("category").getString();
+			String name = req.getRequestParameter("name").getString();
+			String trackingCode = req.getRequestParameter("trackingCode").getString();
+			String brand = req.getRequestParameter("brand").getString();
+			String nfosHeader = req.getRequestParameter("nfosHeader").getString();
+			String nfosDesc = req.getRequestParameter("nfosDesc").getString();
 
 			LOG.info("Received Details id: {} category: {} Name:{} Tracking_code:{}", id, category, name, trackingCode);
 			LOG.info("Received Details Brand: {} NFOS_Header: {} NFOS_Desc:{} ", brand, nfosHeader, nfosDesc);		
