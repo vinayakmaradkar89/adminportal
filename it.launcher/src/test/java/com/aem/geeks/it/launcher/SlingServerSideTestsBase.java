@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.aem.geeks.it.launcher;
+package com.admin.portal.it.launcher;
 
 import static org.junit.Assert.fail;
 

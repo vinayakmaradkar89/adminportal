@@ -13,5 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-// this file simply ensures that the resulting jar is not empty - see issue #30
-package com.admin.portal.it.launcher;
+@Version("1.0")
+package com.admin.portal.core.servlets;
+
+import org.osgi.annotation.versioning.Version;
